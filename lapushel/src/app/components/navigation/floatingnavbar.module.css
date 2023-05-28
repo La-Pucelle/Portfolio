@@ -1,0 +1,75 @@
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.navbar {
+  position: fixed;
+  top: 3vh;
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  animation: slideDown 0.3s ease-in-out;
+  background-color: rgba(100, 100, 100, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 1vh;
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 2vh;
+}
+
+.login{
+  padding: 1vh;
+  cursor: pointer;
+  border-radius: 1vh;
+  transition: background-color 0.3s ease;
+}
+
+.login:hover{
+  color: black;
+  background-color: white;
+}
+
+.logo {
+  width: 4vh;
+  height: 4vh;
+}
+
+.utsutsu{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hover {
+  position: relative;
+  color: #FFF;
+  text-decoration: none;
+}
+
+.hover:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color:#FFF;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

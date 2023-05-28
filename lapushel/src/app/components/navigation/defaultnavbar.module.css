@@ -1,0 +1,62 @@
+.navbar {
+    position: sticky;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 8vh;
+    height: 8vh;
+}
+
+.links {
+    display: flex;
+    list-style: none;
+    gap: 2vh;
+}
+
+.login {
+    border: solid 1px;
+    padding: 1vh;
+    cursor: pointer;
+    border-radius: 1vh;
+    transition: background-color 0.3s ease;
+}
+
+.login:hover {
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+
+.utsutsu{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hover {
+    position: relative;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.hover:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color:#FFF;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.hover:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}

@@ -1,0 +1,16 @@
+.container{
+    width: 100%;
+    height: max-content;
+}
+
+.child{
+    width: 40%;
+    display: grid;
+    grid-row: 50% 50%;
+    margin: auto;
+    border: solid 1px;
+}
+
+.item{
+    margin: auto;
+}
