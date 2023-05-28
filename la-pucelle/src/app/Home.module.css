@@ -19,11 +19,11 @@
 }
 
 .text h1{
-    color: #A4FF7E;
+    color: var(--green);
 }
 
 .text a{
-    border: #A4FF7E solid 1px;
+    border: var(--green) solid 1px;
     padding: 1vh;
     padding-left: 2vh;
     padding-right: 2vh;
@@ -33,8 +33,7 @@
 }
 
 .text a:hover{
-    background-color: #A4FF7E;
-    color: black;
+    background-color: var(--green);
 }
 
 .imgcontainer{
@@ -51,4 +50,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.utsutsu{
+    filter: var(--logo);
 }

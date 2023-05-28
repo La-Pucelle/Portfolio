@@ -5,10 +5,10 @@
 
 .child{
     width: 40%;
+    height: 30rem;
     display: grid;
     grid-row: 50% 50%;
     margin: auto;
-    border: solid 1px;
 }
 
 .item{

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image.js';
 import styles from './floatingnavbar.module.css';
 
-import utsutsu from '../../../assets/Utsutsu-lapushel.png'
+import utsutsu from '../../../assets/Utsutsu-lapushel.svg'
 
 export function FloatingNavbar({ show }) {
     return(

@@ -2,7 +2,7 @@ import Image from 'next/image'
 import styles from './Home.module.css'
 import { About } from './components/about/About'
 
-import utsutsu from '../assets/Utsutsu-lapushel-white-2.png'
+import utsutsu from '../assets/Utsutsu-lapushel-white.svg'
 
 export default function Home() {
   return (
