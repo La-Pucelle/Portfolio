@@ -1,0 +1,52 @@
+.container{
+    margin-top: 20rem;
+    width: 100%;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.child{
+    display: grid;
+    grid-template-columns: repeat(2, 30rem);
+    grid-template-rows: repeat(3, 20rem);
+    gap: 3rem;
+    
+}
+
+.item{
+    background-color: var(--invert);
+    padding: 2rem;
+    box-shadow: 10px 10px 0px var(--green);
+    display: grid;
+}
+
+.item:hover{
+    background-color: var(--green);
+    color: black;
+}
+
+.item:hover .icon{
+    color: black;
+}
+
+.item h5{
+    font-size: 1rem;
+}
+
+.icon{
+    font-size: 2.5rem;
+    color: var(--green);
+}
+
+.tittle{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2vh;
+    margin-right: 55rem;
+}
+
+.tittle p{
+    color: var(--green);
+}

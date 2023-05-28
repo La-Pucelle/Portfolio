@@ -4,6 +4,7 @@
   --background-end-rgb: 255, 255, 255;
   --green: #ff8686;
   --logo: brightness(0%);
+  --invert: white;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -11,8 +12,9 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
-    --green: #A4FF7E;
+    --green: #beffa3;
     --logo: brightness(100%);
+    --invert: black;
   }
 }
 

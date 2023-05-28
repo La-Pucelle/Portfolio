@@ -11,10 +11,6 @@ export const links = [
     route: '/'
   },
   {
-    label: 'Services',
-    route: '/services'
-  },
-  {
     label: 'Projects',
     route: '/projects'
   },
