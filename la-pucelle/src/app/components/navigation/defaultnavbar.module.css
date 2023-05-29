@@ -1,10 +1,15 @@
+.container{
+    width: 100%;
+}
+
 .navbar {
     position: sticky;
     width: 100%;
     color: var(--foreground-rgb);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 10rem;
 }
 
 .logo {
@@ -60,4 +65,39 @@
 .hover:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
+}
+
+.menuButton {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+  
+.menuButton svg {
+    width: 24px;
+    height: 24px;
+    color: var(--foreground-rgb);
+}
+
+.generatedDiv{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.generatedChild{
+    width: 30vh;
+    display: grid;
+    row-gap: 2vh;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 1vh;
+    background-color: rgba(100, 100, 100, 0.4);
+    backdrop-filter: blur(10px);
 }

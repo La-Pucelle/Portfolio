@@ -59,3 +59,12 @@
 .utsutsu{
     filter: var(--logo);
 }
+
+.cero{
+    display: flex;
+    align-items: center;
+}
+
+.cero p{
+    font-size: 3vh;
+}

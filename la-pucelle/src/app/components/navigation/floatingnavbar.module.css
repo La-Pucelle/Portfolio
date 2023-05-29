@@ -11,15 +11,8 @@
   position: fixed;
   top: 2vh;
   width: 30%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  animation: slideDown 0.3s ease-in-out;
-  background-color: rgba(100, 100, 100, 0.4);
-  backdrop-filter: blur(10px);
-  border-radius: 1vh;
-  z-index: 1000;
+  z-index: 9999;
+  transition: width 0.5s;
 }
 
 .links {
@@ -74,4 +67,72 @@
 .hover:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.menuButton svg {
+  width: 24px;
+  height: 24px;
+  color: var(--foreground-rgb);
+}
+
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  animation: slideDown 0.3s ease-in-out;
+  background-color: rgba(100, 100, 100, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 1vh;
+  z-index: 1000;
+}
+
+.generatedDiv{
+  position: fixed;
+  margin-top: 22rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.generatedChild{
+  width: 30vh;
+  display: grid;
+  row-gap: 2vh;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 1vh;
+  background-color: rgba(100, 100, 100, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+@media (min-width: 400px) and (max-width: 767px) {
+  .navbar {
+    width: 80%;
+  }
+}
+
+/* De 768px a 1023px (tablets y pantallas más pequeñas en orientación horizontal) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .navbar {
+    width: 60%;
+  }
+}
+
+/* De 1024px a 1279px (tablets y pantallas más grandes en orientación horizontal) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .navbar {
+    width: 50%;
+  }
 }

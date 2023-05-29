@@ -42,7 +42,7 @@
 .utsutsu{
     width: 350px;
     height: 350px;
-    box-shadow: -25px 25px 0px var(--green);
+    box-shadow: -25px -25px 0px var(--green);
 }
 
 .image{

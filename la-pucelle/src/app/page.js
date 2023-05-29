@@ -12,7 +12,9 @@ export default function Home() {
         <div className={styles.child}>
           <div className={styles.text}>
             <p>Hi, My name is</p>
-            <h1><span>00. </span>La Pucelle</h1>
+            <div className={styles.cero}>
+            <p>00.</p><h1> La Pucelle</h1>
+            </div>
             <p>Versatile software engineer</p>
             <p>experienced in C, Java, Python, React, Node.js.</p>
             <p>Let's create something amazing!.</p>
