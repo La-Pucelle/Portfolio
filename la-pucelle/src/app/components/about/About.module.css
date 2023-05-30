@@ -56,7 +56,7 @@
     justify-content: center;
 }
 
-@media (min-width: 350px) and (max-width: 767px) {
+@media (min-width: 280px) and (max-width: 767px) {
         .child{
             width: 100%;
             padding: 2rem;

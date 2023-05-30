@@ -51,7 +51,7 @@
     color: var(--green);
 }
 
-@media (min-width: 350px) and (max-width: 519px){
+@media (min-width: 280px) and (max-width: 519px){
     .child{
         grid-template-columns: 20rem;
         grid-template-rows: repeat(6, 15rem);
