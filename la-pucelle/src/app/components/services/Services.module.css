@@ -12,7 +12,7 @@
     grid-template-columns: repeat(2, 30rem);
     grid-template-rows: repeat(3, 20rem);
     gap: 3rem;
-    
+    border: solid 1x;
 }
 
 .item{
@@ -49,4 +49,32 @@
 
 .tittle p{
     color: var(--green);
+}
+
+@media (min-width: 350px) and (max-width: 519px){
+    .child{
+        grid-template-columns: 20rem;
+        grid-template-rows: repeat(6, 15rem);
+    }
+
+    .tittle{
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2vh;
+        margin-right: 0rem;
+    }
+}
+
+@media (min-width: 520px) and (max-width: 1023px) {
+    .child{
+        grid-template-columns: 30rem;
+        grid-template-rows: repeat(6, 20rem);
+    }
+
+    .tittle{
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2vh;
+        margin-right: 0rem;
+    }
 }

@@ -107,7 +107,7 @@
 }
 
 .generatedChild{
-  width: 30vh;
+  width: 50%;
   display: grid;
   row-gap: 2vh;
   text-align: center;
@@ -117,7 +117,7 @@
   backdrop-filter: blur(10px);
 }
 
-@media (min-width: 400px) and (max-width: 767px) {
+@media (min-width: 370px) and (max-width: 767px) {
   .navbar {
     width: 80%;
   }

@@ -16,6 +16,7 @@
 
 .text{
     margin: auto;
+    
 }
 
 .text h1{
@@ -41,7 +42,11 @@
 }
 
 .imgcontainer{
-    margin: auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button{
@@ -58,6 +63,7 @@
 
 .utsutsu{
     filter: var(--logo);
+    transition: all 0.5s;
 }
 
 .cero{
@@ -67,4 +73,55 @@
 
 .cero p{
     font-size: 3vh;
+}
+
+@media (max-width: 420px) {
+    .cero p{
+        font-size: 2vh;
+    }
+
+    .text h1{
+        font-size: 2vh;
+    }
+
+    .text p{
+        font-size: 1.5vh;
+    }
+
+    .text a{
+        font-size: 1.5vh;
+    }
+
+
+}
+
+@media (min-width: 350px) and (max-width: 767px) { 
+    .child{
+        width: 100%;
+        padding: 2rem;
+    } 
+
+    .utsutsu{
+        height: 40vh;
+    }
+}
+  
+@media (min-width: 768px) and (max-width: 1023px) {
+    .child{
+        width: 100%;
+    } 
+
+    .utsutsu{
+        height: 70vh;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .child{
+        width: 70%;
+    } 
+
+    .utsutsu{
+        height: 80vh;
+    }
 }
