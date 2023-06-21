@@ -20,6 +20,7 @@
     padding: 2rem;
     box-shadow: 10px 10px 0px var(--green);
     display: grid;
+    transition: all 0.3s ease;
 }
 
 .item:hover{
@@ -38,6 +39,7 @@
 .icon{
     font-size: 2.5rem;
     color: var(--green);
+    transition: all 0.3s ease;
 }
 
 .tittle{

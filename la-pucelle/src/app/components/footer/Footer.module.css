@@ -22,6 +22,11 @@
 .icon{
     font-size: 1.5rem;
     cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.icon:hover{
+    color: var(--green);
 }
 
 .copyright{
