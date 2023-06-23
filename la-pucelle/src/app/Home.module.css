@@ -1,6 +1,6 @@
 .container{
     width: 100%;
-    height: max-content;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,15 +16,17 @@
 
 .text{
     margin: auto;
-    
 }
 
 .text h1{
     color: var(--green);
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .text span{
     color: var(--foreground-rgb);
+    font-size: 3vh;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .text a{
@@ -62,6 +64,7 @@
 }
 
 .utsutsu{
+    height: 70vh;
     filter: var(--logo);
     transition: all 0.5s;
 }

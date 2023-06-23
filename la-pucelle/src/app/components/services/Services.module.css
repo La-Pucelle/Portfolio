@@ -1,9 +1,10 @@
 .container{
     margin-top: 20rem;
     width: 100%;
-    height: max-content;
+    height: 150vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
 
@@ -12,7 +13,6 @@
     grid-template-columns: repeat(2, 30rem);
     grid-template-rows: repeat(3, 20rem);
     gap: 3rem;
-    border: solid 1x;
 }
 
 .item{
@@ -51,6 +51,12 @@
 
 .tittle p{
     color: var(--green);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.9vh;
+}
+
+.tittle h3{
+    font-family: 'Courier New', Courier, monospace;
 }
 
 @media (min-width: 280px) and (max-width: 519px){

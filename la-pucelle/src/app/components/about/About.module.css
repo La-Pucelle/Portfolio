@@ -1,7 +1,7 @@
 .container{
-    margin-top: 20rem;
     width: 100%;
-    height: max-content;
+    height: 100vh;
+    display: flex;
 }
 
 .child{
@@ -37,10 +37,12 @@
 .tittle{
     display: flex;
     gap: 1rem;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .tittle p{
-    
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.9vh;
     color: var(--green);
 }
 

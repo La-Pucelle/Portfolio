@@ -5,7 +5,7 @@ import utsutsu from '../../../assets/miya.gif'
 
 export function About(){
     return(
-        <div className={styles.container}>
+        <div className={styles.container} id='aboutContainer'>
             <div className={styles.child}>
                 <div className={styles.image}>
                         <Image src={utsutsu} className={styles.utsutsu}/>

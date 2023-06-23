@@ -5,6 +5,8 @@
   --green: #ff8686;
   --logo: brightness(0%);
   --invert: white;
+  --scrollbar-background: rgb(201, 201, 201);
+  --scrollbar-thumb: rgb(165, 165, 165);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,6 +17,8 @@
     --green: #93ff65;
     --logo: brightness(100%);
     --invert: black;
+    --scrollbar-background: rgb(20, 20, 20);
+    --scrollbar-thumb: rgb(40, 40, 40);
   }
 }
 
@@ -46,6 +50,23 @@ a {
 
 ul {
   list-style: none;
+}
+
+::-webkit-scrollbar{
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-background); 
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 1vh;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
 
 @media (prefers-color-scheme: dark) {

@@ -68,9 +68,9 @@ export function DefaultNavbar() {
   return (
     <>
       <div className={styles.container}>
-        <nav className={styles.navbar}>
+        <nav className={styles.navbar} id='navbarContainer'>
           <div className={styles.logo}>
-            <Image src={utsutsu} alt="utsutsu-miya" className={styles.utsutsu} />
+            <Image src={utsutsu} alt="utsutsu-miya" className={styles.utsutsu}/>
           </div>
 
           {showMenu ? (

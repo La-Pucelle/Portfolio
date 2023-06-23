@@ -36,7 +36,7 @@ const items = [
 
 export function Services(){
     return(
-        <div className={styles.container}>
+        <div className={styles.container} id='servicesContainer'>
             <div className={styles.tittle}>
                 <p>02.</p>
                 <h3>Services.</h3>
