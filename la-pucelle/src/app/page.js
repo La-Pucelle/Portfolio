@@ -15,7 +15,7 @@ export default function Home() {
           <div className={styles.text}>
             <p>Hi, My name is</p>
             <div className={styles.cero}>
-            <span>00.</span><h1>La Pucelle</h1>
+            <h1>00.La Pucelle</h1>
             </div>
             <p>Versatile software engineer</p>
             <p>experienced in C, Java, Python, React, Node.js.</p>

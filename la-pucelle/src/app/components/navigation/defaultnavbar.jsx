@@ -10,7 +10,7 @@ import { links } from './Navigation.jsx'
 
 export function DefaultNavbar() {
   const [showMenu, setShowMenu] = useState(false)
-  const [windowWidth, setWindowWidth] = useState(0)
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0)
   const [showDiv, setShowDiv] = useState(false)
   const generatedDivRef = useRef(null)
 

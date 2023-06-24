@@ -7,6 +7,7 @@
   --invert: white;
   --scrollbar-background: rgb(201, 201, 201);
   --scrollbar-thumb: rgb(165, 165, 165);
+  --loading: black;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,6 +20,7 @@
     --invert: black;
     --scrollbar-background: rgb(20, 20, 20);
     --scrollbar-thumb: rgb(40, 40, 40);
+    --loading: white;
   }
 }
 
