@@ -1,7 +1,6 @@
 "use client";
 import './globals.css'
 import { Inter } from 'next/font/google'
-import { metadata } from './metadata.js'
 import { Navigation } from './components/navigation/Navigation'
 import { DayNight } from './components/day-night/DayNight'
 import { Footer } from './components/footer/Footer'
@@ -27,7 +26,6 @@ export default function RootLayout({ children }) {
   }, [])
   return (
     <html lang="en">
-      <title>{metadata.title}</title>
       <body className={inter.className}>
         {isLoading ? <Loading /> : (
           <>
