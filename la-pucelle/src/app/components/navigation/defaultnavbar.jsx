@@ -1,65 +1,65 @@
-import { useState, useEffect, useRef } from 'react';
-import { AiOutlineMenu } from 'react-icons/ai';
+import { useState, useEffect, useRef } from 'react'
+import { AiOutlineMenu } from 'react-icons/ai'
 import { CgClose } from 'react-icons/cg'
-import Link from 'next/link';
-import Image from 'next/image.js';
-import styles from './defaultnavbar.module.css';
+import Link from 'next/link'
+import Image from 'next/image.js'
+import styles from './defaultnavbar.module.css'
 
-import utsutsu from '../../../assets/Utsutsu-lapushel.svg';
-import { links } from './Navigation.jsx';
+import utsutsu from '../../../assets/Utsutsu-lapushel.svg'
+import { links } from './Navigation.jsx'
 
 export function DefaultNavbar() {
-  const [showMenu, setShowMenu] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(0);
-  const [showDiv, setShowDiv] = useState(false);
-  const generatedDivRef = useRef(null);
+  const [showMenu, setShowMenu] = useState(false)
+  const [windowWidth, setWindowWidth] = useState(0)
+  const [showDiv, setShowDiv] = useState(false)
+  const generatedDivRef = useRef(null)
 
   const handleResize = () => {
-    setWindowWidth(window.innerWidth);
+    setWindowWidth(window.innerWidth)
   };
 
   useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    handleResize();
+    window.addEventListener('resize', handleResize)
+    handleResize()
 
     return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   useEffect(() => {
-    setShowMenu(windowWidth <= 768);
-    setShowDiv(windowWidth > 768);
-  }, [windowWidth]);
+    setShowMenu(windowWidth <= 768)
+    setShowDiv(windowWidth > 768)
+  }, [windowWidth])
   const handleButtonClick = () => {
-    setShowDiv(prevState => !prevState);
+    setShowDiv(prevState => !prevState)
   };
 
   useEffect(() => {
     const handleScroll = () => {
       if (setShowDiv && window.scrollY >= 4) {
-        setShowDiv(false);
+        setShowDiv(false)
       }
     };
   
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll)
   
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (generatedDivRef.current && !generatedDivRef.current.contains(event.target)) {
-        setShowDiv(false);
+        setShowDiv(false)
       }
     };
   
-    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener('mousedown', handleOutsideClick)
   
     return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener('mousedown', handleOutsideClick)
     };
   }, []);
 

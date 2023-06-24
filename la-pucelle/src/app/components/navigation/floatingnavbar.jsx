@@ -9,30 +9,30 @@ import styles from './floatingnavbar.module.css';
 import utsutsu from '../../../assets/Utsutsu-lapushel.svg'
 
 export function FloatingNavbar({ show }) {
-  const [showMenu, setShowMenu] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(0);
-  const [showDiv, setShowDiv] = useState(false);
-  const generatedDivRef = useRef(null);
+  const [showMenu, setShowMenu] = useState(false)
+  const [windowWidth, setWindowWidth] = useState(0)
+  const [showDiv, setShowDiv] = useState(false)
+  const generatedDivRef = useRef(null)
 
   const handleResize = () => {
-    setWindowWidth(window.innerWidth);
+    setWindowWidth(window.innerWidth)
   };
 
   useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    handleResize();
+    window.addEventListener('resize', handleResize)
+    handleResize()
 
     return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   useEffect(() => {
-    setShowMenu(windowWidth <= 768);
-    setShowDiv(windowWidth > 768);
-  }, [windowWidth]);
+    setShowMenu(windowWidth <= 768)
+    setShowDiv(windowWidth > 768)
+  }, [windowWidth])
   const handleButtonClick = () => {
-    setShowDiv(prevState => !prevState);
+    setShowDiv(prevState => !prevState)
   };
 
   useEffect(() => {
@@ -42,12 +42,12 @@ export function FloatingNavbar({ show }) {
       }
     };
   
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll)
   
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -56,12 +56,12 @@ export function FloatingNavbar({ show }) {
       }
     };
   
-    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener('mousedown', handleOutsideClick)
   
     return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
-    };
-  }, []);
+      document.removeEventListener('mousedown', handleOutsideClick)
+    }
+  }, [])
   
 
     return(
