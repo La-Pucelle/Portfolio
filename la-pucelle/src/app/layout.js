@@ -13,8 +13,15 @@ export default function RootLayout({ children }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Esto se ejecuta después del primer renderizado
-    setIsLoading(false);
+    if (sessionStorage.getItem('visitedBefore')) {
+      setIsLoading(false);
+    } else {
+      sessionStorage.setItem('visitedBefore', 'true');
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
   }, []);
   return (
     <html lang="en">
