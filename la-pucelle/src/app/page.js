@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import styles from './Home.module.css'
-import { Bar } from './components/bar/Bar'
+import { Bar } from './components/Bar/Bar'
 import { About } from './components/about/About'
 import { Services } from './components/services/Services'
 
