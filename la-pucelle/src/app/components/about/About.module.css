@@ -1,104 +1,87 @@
 .container{
-    width: 100%;
+    width: 50%;
     height: 100vh;
-    display: flex;
+    margin: auto;
 }
 
 .child{
-    width: 40%;
-    height: 32rem;
+    height: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
+}
+
+.header{
     margin: auto;
 }
 
-.text{
-    display: grid;
-    row-gap: 1rem;
-}
-
-.text p span {
-    color: var(--green);
-}
-
-.text p span::before {
-    content: " ";
-    color: var(--green);
-}
-
-.text p span:last-child::before {
-    content: " ";
-}
-
-.txtcontainer{
-    margin: auto;
-}
-
-.tittle{
-    display: flex;
-    gap: 1rem;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-.tittle p{
+.font{
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.9vh;
+}
+
+.header ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.header li{
+    position: relative;
+    cursor: pointer;
+    width: max-content;
+    display: grid;
+}
+
+.header li:hover{
+    color: var(--loading);
+}
+
+.header h4{
+    color: var(--light);
+}
+
+.header span{
     color: var(--green);
 }
 
-.utsutsu{
-    width: 350px;
-    height: 350px;
-    box-shadow: -25px -25px 0px var(--green);
+.item {
+    font-weight: bold;
 }
 
-.image{
+.content{
+    margin: auto;
+    padding: 2rem;
+}
+
+.itemContainer{
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 0.9vh;
 }
 
-@media (min-width: 280px) and (max-width: 767px) {
-        .child{
-            width: 100%;
-            padding: 2rem;
-        }
-        .utsutsu{
-            width: 165px;
-            height: 165px;
-        }
-        .text p{
-            font-size: 1vh;
-        }
-  }
-  
-  /* De 768px a 1023px (tablets y pantallas más pequeñas en orientación horizontal) */
-  @media (min-width: 768px) and (max-width: 1023px) {
-        .child{
-            width: 80%;
-        }
-        .utsutsu{
-            width: 200px;
-            height: 200px;
-        }
-        .text p{
-            font-size: 1.2vh;
-        }
-  }
-  
-  /* De 1024px a 1279px (tablets y pantallas más grandes en orientación horizontal) */
-  @media (min-width: 1024px) and (max-width: 1800px) {
-        .child{
-            width: 80%;
-        }
+.itemContainer hr{
+    width: 20px;
+    border-radius: 1rem;
+    border: none;
+    border-top: 3px solid var(--light);
+    transition: width 0.2s ease;
+}
 
-        .utsutsu{
-            width: 250px;
-            height: 250px;
-        }
-        
-        .text p{
-            font-size: 1.6vh;
-        }
-  }
-  
+.itemContainer:hover hr{
+    width: 25px;
+    border-top: 3px solid var(--loading);
+}
+
+.itemContainer:hover h4{
+    color: var(--green);
+}
+
+.activeItem h4{
+    color: var(--green);
+}
+
+.activeItem hr{
+    width: 25px;
+    border-top: 3px solid var(--loading);
+}

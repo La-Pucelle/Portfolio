@@ -1,46 +1,65 @@
+"use client";
 import styles from './About.module.css'
-import Image from 'next/image'
+import { useState } from 'react'
+import { Aboutme } from './aboutme/Aboutme'
+import { Study } from './study/Study'
+import { Skills } from './skills/Skills'
 
-import utsutsu from '../../../assets/miya.gif'
+const items = [
+    {
+        label: 'About'
+    },
+    {
+        label: 'Study'
+    },
+    {
+        label: 'Skills'
+    }
+]
+
+const components = [Aboutme, Study, Skills]
 
 export function About(){
+    const [activeComponent, setActiveComponent] = useState(0)
+    const handleItemClick = (index) => {
+        setActiveComponent(index)
+    }
+
+    const renderActiveComponent = () => {
+
+        if (activeComponent !== null) {
+          const Component = components[activeComponent]
+          return <Component />
+        }
+        return null
+    }
     return(
         <div className={styles.container} id='aboutContainer'>
             <div className={styles.child}>
-                <div className={styles.image}>
-                        <Image src={utsutsu} className={styles.utsutsu}/>
-                </div>
+                <header className={styles.header}>
+                    <h3 className={styles.font}><span>01. </span> About me.</h3>
+                    <h1>La Pucelle</h1>
+                    <p>Versatile software engineer</p>
+                    <p>experienced in C, Java, Python, React, Node.js.</p>
+                    <p>Let's create something amazing!.</p>
+                    <ul>
+                        {items.map(({ label }, index) => (
+                            <li
+                            key={label}
+                            onClick={() => handleItemClick(index)}
+                            className={activeComponent === index ? styles.activeItem : ''}
+                            >
+                                <div className={styles.itemContainer}>
+                                    <hr className={activeComponent === index ? styles.activeItem : ''}/>
+                                    <h4 className={activeComponent === index ? styles.activeItem : ''}>{label}</h4>    
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </header>
 
-                <div className={styles.txtcontainer}>
-                    <div className={styles.tittle}>
-                        <p>01.</p>
-                        <h3>About me.</h3>
-                    </div>
-
-                    <div className={styles.text}>
-                        <p>
-                            I'm a passionate individual whose interests lie at the intersection of the digital world and music. Since my days in a youth orchestra, harmony and rhythm have always fascinated me. This fascination translated into computer science when I began my studies in Multimedia Computer Engineering. Being a self-taught learner by nature, I relish in learning new technologies and exploring how they can interact with users in innovative ways.
-                        </p>
-                        <p>
-                            My studies and practice in graphic design have made me understand the significance of aesthetics in digital experiences, which I've applied in developing intuitive user interfaces. I'm particularly interested in creating video games with Unity, where I can blend all these skills to create immersive and engaging experiences.
-                        </p>
-
-                        <p>
-                            Throughout my career, I've worked with a variety of programming languages such as 
-                            <span>C</span>, 
-                            <span>Java</span>, 
-                            <span>Node.js</span>, 
-                            <span>React</span>, 
-                            <span>Python</span>, 
-                            and 
-                            <span>C#</span>.
-                            Each has provided me with a fresh perspective on problem-solving and allowed me to build a solid technical skill set.
-                        </p>
-                        
-                        <p>
-                            In my spare time, you'll likely find me with a cup of coffee in hand, as I'm a bona fide coffee addict. I love the brewing process, the aroma, and of course, the energy and focus it provides, especially during those long coding sessions.
-                        </p>
-                    </div>
+                <div className={styles.content}>
+                    {renderActiveComponent()}
                 </div>
             </div>
         </div>

@@ -10,18 +10,13 @@ export default function Home() {
   return (
     <>
       <Bar />
+      
       <div className={styles.container}>
         <div className={styles.child}>
           <div className={styles.text}>
-            <p>Hi, My name is</p>
             <div className={styles.cero}>
             <h1>00.La Pucelle</h1>
             </div>
-            <p>Versatile software engineer</p>
-            <p>experienced in C, Java, Python, React, Node.js.</p>
-            <p>Let's create something amazing!.</p>
-            <br></br>
-            <a>GitHub</a>
           </div>
 
           <div className={styles.imgcontainer}>

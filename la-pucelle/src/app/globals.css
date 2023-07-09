@@ -1,5 +1,5 @@
 :root {
-  --foreground-rgb: 0, 0, 0;
+  --foreground-rgb: rgb(36, 36, 36);
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
   --green: #ff8686;
@@ -8,6 +8,7 @@
   --scrollbar-background: rgb(201, 201, 201);
   --scrollbar-thumb: rgb(165, 165, 165);
   --loading: black;
+  --light: rgb(114, 114, 114);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,6 +22,7 @@
     --scrollbar-background: rgb(20, 20, 20);
     --scrollbar-thumb: rgb(40, 40, 40);
     --loading: white;
+    --light: rgb(180, 180, 180);
   }
 }
 

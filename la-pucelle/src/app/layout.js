@@ -7,7 +7,6 @@ import { Footer } from './components/footer/Footer'
 import { Loading } from './components/loading/Loading'
 import { useState, useEffect } from 'react'
 
-
 const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({ children }) {

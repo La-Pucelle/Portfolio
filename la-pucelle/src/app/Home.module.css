@@ -25,31 +25,8 @@
     width: 13.13ch;
     color: var(--green);
     font-family: 'Courier New', Courier, monospace;
-    animation: typing 2s steps(13), blink .5s infinite step-end alternate;
+    animation: typing 2s steps(13), blink .9s infinite step-end alternate;
     overflow: hidden;
-}
-
-.text p{
-    opacity: 0;
-    animation: opacity 1s forwards;
-    animation-delay: 3.5s;
-}
-
-.text a{
-    border: var(--green) solid 1px;
-    padding: 1vh;
-    padding-left: 2vh;
-    padding-right: 2vh;
-    border-radius: 1vh;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    opacity: 0;
-    animation: opacity 1s forwards;
-    animation-delay: 3.5s;
-}
-
-.text a:hover{
-    background-color: var(--green);
 }
 
 .imgcontainer{
@@ -60,54 +37,19 @@
     align-items: center;
 }
 
-.button{
-    margin: auto;
-}
-
-.about{
-    width: 100%;
-    height: max-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .utsutsu{
     height: 70vh;
     filter: var(--logo);
     transition: all 0.5s;
     opacity: 0;
     animation: opacity 1s forwards;
-    animation-delay: 4.5s;
-}
-
-.cero{
-    display: flex;
-    align-items: center;
-}
-
-.cero p{
-    font-size: 3vh;
+    animation-delay: 3.5s;
 }
 
 @media (max-width: 420px) {
-    .cero p{
-        font-size: 2vh;
-    }
-
     .text h1{
         font-size: 2vh;
     }
-
-    .text p{
-        font-size: 1.5vh;
-    }
-
-    .text a{
-        font-size: 1.5vh;
-    }
-
-
 }
 
 @media (min-width: 280px) and (max-width: 767px) { 

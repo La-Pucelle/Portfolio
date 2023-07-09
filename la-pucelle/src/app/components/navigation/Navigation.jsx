@@ -4,6 +4,7 @@ import styles from './Navigation.module.css'
 
 import { DefaultNavbar } from './defaultnavbar'
 import { FloatingNavbar } from './floatingnavbar'
+import { metadata } from '../../metadata'
 
 export const links = [
   {
@@ -45,6 +46,7 @@ export function Navigation() {
 
   return (
     <header className={styles.header}>
+      <title>{metadata.title}</title>
       <DefaultNavbar />
       {showFloating && (
         <FloatingNavbar show={showFloating}/>
