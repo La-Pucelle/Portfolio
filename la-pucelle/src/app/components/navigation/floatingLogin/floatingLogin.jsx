@@ -3,8 +3,6 @@ import { AiOutlineGithub, AiOutlineGoogle, AiOutlineClose } from 'react-icons/ai
 import { useState, useEffect } from 'react'
 
 export function FloatingLogin(){
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
     useEffect(() => {
         // Al montar el componente, bloquear el scroll
@@ -27,8 +25,6 @@ export function FloatingLogin(){
                         <input
                             type="email"
                             id="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
                             placeholder="Email"
                         />
                     </div>
@@ -36,8 +32,6 @@ export function FloatingLogin(){
                         <input
                             type="password"
                             id="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
                             placeholder="Password"
                         />
                         <p className={styles.forgotPassword}>Forgot Password?</p>
