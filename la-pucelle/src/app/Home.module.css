@@ -44,6 +44,7 @@
     opacity: 0;
     animation: opacity 1s forwards;
     animation-delay: 3.5s;
+    z-index: -1;
 }
 
 @media (max-width: 420px) {

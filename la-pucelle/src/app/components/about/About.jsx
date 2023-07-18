@@ -36,7 +36,7 @@ export function About(){
     return(
         <div className={styles.container} id='aboutContainer'>
             <div className={styles.child}>
-                <header className={styles.header}>
+                <div className={styles.header}>
                     <h3 className={styles.font}><span>01. </span> About me.</h3>
                     <h1>La Pucelle</h1>
                     <p>Versatile software engineer</p>
@@ -56,7 +56,7 @@ export function About(){
                             </li>
                         ))}
                     </ul>
-                </header>
+                </div>
 
                 <div className={styles.content}>
                     {renderActiveComponent()}

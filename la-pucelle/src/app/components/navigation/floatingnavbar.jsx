@@ -2,13 +2,14 @@ import { useState, useEffect, useRef } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { CgClose } from 'react-icons/cg'
 import { links } from './Navigation'
+import { Login } from './login/Login'
 import Link from 'next/link';
 import Image from 'next/image.js';
 import styles from './floatingnavbar.module.css';
 
 import utsutsu from '../../../assets/Utsutsu-lapushel.svg'
 
-export function FloatingNavbar({ show }) {
+export function FloatingNavbar({ show, handleClick }) {
   const [showMenu, setShowMenu] = useState(false)
   const [windowWidth, setWindowWidth] = useState(0)
   const [showDiv, setShowDiv] = useState(false)
@@ -86,7 +87,7 @@ export function FloatingNavbar({ show }) {
                 ))}
               </ul>
 
-              <div className={styles.login}>Login</div>
+              <Login handleClick={handleClick}/>
             </>
           )}
           </div>
@@ -102,7 +103,7 @@ export function FloatingNavbar({ show }) {
                     <Link href={route} className={styles.hover}>{label}</Link>
                   </li>
                 ))}
-                <div className={styles.login}>Login</div>
+                <Login handleClick={handleClick}/>
               </ul>
             </div>
           )}

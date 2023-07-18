@@ -21,7 +21,7 @@ export const links = [
   }
 ]
 
-export function Navigation() {
+export function Navigation({ handleClick }) {
   const [showFloating, setShowFloating] = useState(false);
 
   useEffect(() => {
@@ -45,12 +45,14 @@ export function Navigation() {
   }, []);
 
   return (
-    <header className={styles.header}>
-      <title>{metadata.title}</title>
-      <DefaultNavbar />
-      {showFloating && (
-        <FloatingNavbar show={showFloating}/>
-      )}
-    </header>
+    <>
+      <header className={styles.header}>
+        <title>{metadata.title}</title>
+        <DefaultNavbar handleClick={handleClick}/>
+        {showFloating && (
+          <FloatingNavbar show={showFloating} handleClick={handleClick}/>
+        )}
+      </header>
+    </>
   );
 }

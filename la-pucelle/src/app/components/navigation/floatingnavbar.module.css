@@ -23,18 +23,6 @@
   gap: 2vh;
 }
 
-.login{
-  padding: 1vh;
-  cursor: pointer;
-  border-radius: 1vh;
-  transition: background-color 0.3s ease;
-}
-
-.login:hover{
-  color: black;
-  background-color: white;
-}
-
 .logo {
   width: 4vh;
   height: 4vh;

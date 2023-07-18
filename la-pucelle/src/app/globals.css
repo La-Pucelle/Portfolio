@@ -9,20 +9,22 @@
   --scrollbar-thumb: rgb(165, 165, 165);
   --loading: black;
   --light: rgb(114, 114, 114);
+  --login-image: url('https://64.media.tumblr.com/e393e16e2c542a4f3949aa880980fcc5/9741c9e166cefc10-b1/s640x960/bce0ec1c0eebecec5f86f866aa6628773e7ce7d4.gifv');
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 20, 20, 20;
+    --background-end-rgb: 10, 10, 10;
     --green: #93ff65;
     --logo: brightness(100%);
-    --invert: black;
+    --invert: rgb(15, 15, 15);
     --scrollbar-background: rgb(20, 20, 20);
     --scrollbar-thumb: rgb(40, 40, 40);
     --loading: white;
     --light: rgb(180, 180, 180);
+    --login-image: url('https://media.discordapp.net/attachments/852770019413721158/1128115123215667210/6aa37fd0017bdb291ca8cbdd8b0ede52.gif');
   }
 }
 

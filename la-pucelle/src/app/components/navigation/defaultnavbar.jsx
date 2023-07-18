@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { CgClose } from 'react-icons/cg'
+import { Login } from './login/Login'
 import Link from 'next/link'
 import Image from 'next/image.js'
 import styles from './defaultnavbar.module.css'
@@ -8,7 +9,7 @@ import styles from './defaultnavbar.module.css'
 import utsutsu from '../../../assets/Utsutsu-lapushel.svg'
 import { links } from './Navigation.jsx'
 
-export function DefaultNavbar() {
+export function DefaultNavbar({ handleClick }) {
   const [showMenu, setShowMenu] = useState(false)
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0)
   const [showDiv, setShowDiv] = useState(false)
@@ -16,7 +17,7 @@ export function DefaultNavbar() {
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth)
-  };
+  }
 
   useEffect(() => {
     window.addEventListener('resize', handleResize)
@@ -33,15 +34,15 @@ export function DefaultNavbar() {
   }, [windowWidth])
   const handleButtonClick = () => {
     setShowDiv(prevState => !prevState)
-  };
+  }
 
   useEffect(() => {
     const handleScroll = () => {
       if (setShowDiv && window.scrollY >= 4) {
         setShowDiv(false)
       }
-    };
-  
+    }
+
     window.addEventListener('scroll', handleScroll)
   
     return () => {
@@ -54,7 +55,7 @@ export function DefaultNavbar() {
       if (generatedDivRef.current && !generatedDivRef.current.contains(event.target)) {
         setShowDiv(false)
       }
-    };
+    }
   
     document.addEventListener('mousedown', handleOutsideClick)
   
@@ -87,7 +88,7 @@ export function DefaultNavbar() {
                 ))}
               </ul>
 
-              <div className={styles.login}>Login</div>
+              <Login handleClick={handleClick}/>
             </>
           )}
         </nav>
@@ -101,13 +102,13 @@ export function DefaultNavbar() {
                       <Link href={route} className={styles.hover}>{label}</Link>
                     </li>
                   ))}
-                  <div className={styles.login}>Login</div>
+                  <Login handleClick={handleClick}/>
                 </ul>
               </div>
             )}
           </>
         )}
-      </div>      
+      </div>
     </>
   );
 } 

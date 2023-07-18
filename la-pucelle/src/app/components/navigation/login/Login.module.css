@@ -1,0 +1,13 @@
+.container{
+    cursor: pointer;
+    user-select: none;
+}
+
+.floating{
+    position: fixed;
+    width: 100%;
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
