@@ -80,6 +80,7 @@
 
 .activeItem h4{
     color: var(--green);
+    text-shadow: 0 0 20px var(--green);
 }
 
 .activeItem hr{

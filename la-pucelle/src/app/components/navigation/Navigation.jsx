@@ -4,7 +4,6 @@ import styles from './Navigation.module.css'
 
 import { DefaultNavbar } from './defaultnavbar'
 import { FloatingNavbar } from './floatingnavbar'
-import { metadata } from '../../metadata'
 
 export const links = [
   {
@@ -45,14 +44,11 @@ export function Navigation({ handleClick }) {
   }, []);
 
   return (
-    <>
-      <header className={styles.header}>
-        <title>{metadata.title}</title>
-        <DefaultNavbar handleClick={handleClick}/>
-        {showFloating && (
-          <FloatingNavbar show={showFloating} handleClick={handleClick}/>
-        )}
-      </header>
-    </>
-  );
+    <header className={styles.header}>
+      <DefaultNavbar handleClick={handleClick}/>
+      {showFloating && (
+        <FloatingNavbar show={showFloating} handleClick={handleClick}/>
+      )}
+    </header>
+  )
 }
