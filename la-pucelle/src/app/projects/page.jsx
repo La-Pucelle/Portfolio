@@ -1,16 +1,33 @@
-export default function Projects(){
-    return(
-        <h1>Hello, im Projects :3</h1>
-    )
-}
+import styles from './projects.module.css'
 
-const zapallo = [
+const Parallax = [
     {
-        precio: 'hola'
-    },{
-        precio: 'hola2'
+        image: '/login-bg.gif',
+    },
+    {
+        image: '/login-bg.gif',
     }
 
 ]
 
-zapallo.map
+export default function Projects(){
+    return(
+        <div className={styles.container}>
+            <div className={styles.tittle}>
+                <h1>Projects</h1>
+            </div>
+
+            <div className={styles.parallax}>
+                {Parallax.map(({ image }, index) => (
+                    <div key={index} className={styles.item} style={{backgroundImage: `url(${image})`}}>
+                        <div className={styles.content}>
+
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <iframe src="https://www.la-pucelle.net" width="600" height="400"></iframe>
+        </div>
+    )
+}

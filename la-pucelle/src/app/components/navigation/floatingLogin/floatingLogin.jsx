@@ -5,14 +5,12 @@ import { useState, useEffect } from 'react'
 export function FloatingLogin(){
 
     useEffect(() => {
-        // Al montar el componente, bloquear el scroll
-        document.body.style.overflow = 'hidden';
-    
-        // Al desmontar el componente, restaurar el scroll
+        document.body.style.overflow = 'hidden'
+
         return () => {
-          document.body.style.overflow = 'auto';
-        };
-    }, []);
+          document.body.style.overflow = 'auto'
+        }
+    }, [])
     
 
     return(

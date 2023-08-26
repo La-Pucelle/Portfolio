@@ -6,13 +6,15 @@ import Link from 'next/link'
 import Image from 'next/image.js'
 import styles from './defaultnavbar.module.css'
 
-import utsutsu from '../../../assets/Utsutsu-lapushel.svg'
+import utsutsuPink from '../../../assets/Utsutsu-lapushel-pink.svg'
+import utsutsuGreen from '../../../assets/Utsutsu-lapushel-green.svg'
 import { links } from './Navigation.jsx'
 
 export function DefaultNavbar({ handleClick }) {
   const [showMenu, setShowMenu] = useState(false)
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0)
   const [showDiv, setShowDiv] = useState(false)
+  const [schemaColor, setSchemaColor] = useState('light')
   const generatedDivRef = useRef(null)
 
   const handleResize = () => {
@@ -61,11 +63,26 @@ export function DefaultNavbar({ handleClick }) {
   
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick)
-    };
-  }, []);
+    }
+  }, [])
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    setSchemaColor(mediaQuery.matches ? 'dark' : 'light')
   
+    const handler = (event) => {
+      setSchemaColor(event.matches ? 'dark' : 'light')
+    }
   
+    mediaQuery.addEventListener('change', handler)
+  
+    return () => {
+      mediaQuery.removeEventListener('change', handler)
+    }
+  }, [])
+  
+  const utsutsu = schemaColor === 'dark' ? utsutsuGreen : utsutsuPink;
+
   return (
     <>
       <div className={styles.container}>

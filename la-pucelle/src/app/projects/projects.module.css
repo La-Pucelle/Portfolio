@@ -1,0 +1,29 @@
+.tittle{
+    height: 99vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.parallax{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.item {
+    height: 100vh;
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 20, 20, 0.4);
+    backdrop-filter: blur(2px);
+}
