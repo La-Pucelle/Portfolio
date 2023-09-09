@@ -45,9 +45,7 @@ export function Navigation({ handleClick }) {
 
   return (
     <>
-      <head>
-        <title>{metadata.title}</title>
-      </head>
+      <title>{metadata.title}</title>
       <header className={styles.header}>
         <DefaultNavbar handleClick={handleClick}/>
         {showFloating && (
