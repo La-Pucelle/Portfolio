@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from 'react'
 import styles from './Navigation.module.css'
-import { metadata } from '../../metadata'
+import { metadata, setTitle, onBlur, onFocus } from '../../metadata'
 import { DefaultNavbar } from './defaultnavbar'
 import { FloatingNavbar } from './floatingnavbar'
 
@@ -24,6 +24,10 @@ export function Navigation({ handleClick }) {
   const [showFloating, setShowFloating] = useState(false);
 
   useEffect(() => {
+    setTitle(metadata.title);  // Configura el título inicial del documento
+
+    window.addEventListener('blur', onBlur);
+    window.addEventListener('focus', onFocus);
     function handleScroll() {
       if (typeof window !== 'undefined' && window.scrollY > 90) {
         setShowFloating(true);
@@ -40,12 +44,13 @@ export function Navigation({ handleClick }) {
       if (typeof window !== 'undefined') {
         window.removeEventListener("scroll", handleScroll);
       }
+      window.removeEventListener('blur', onBlur);
+      window.removeEventListener('focus', onFocus);
     };
   }, []);
 
   return (
     <>
-      <title>{metadata.title}</title>
       <header className={styles.header}>
         <DefaultNavbar handleClick={handleClick}/>
         {showFloating && (
