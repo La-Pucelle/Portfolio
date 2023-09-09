@@ -7,7 +7,6 @@ import { Footer } from './components/footer/Footer'
 import { Loading } from './components/loading/Loading'
 import { LoginRegister } from './components/navigation/login/Login';
 import { useState, useEffect } from 'react'
-import { metadata } from './metadata'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -32,9 +31,6 @@ export default function RootLayout({ children }) {
   }, [])
   return (
     <html lang="en">
-      <head>
-        <title>{metadata.title}</title>
-      </head>
       <body className={inter.className}>
         {isLoading ? <Loading /> : (
           <>

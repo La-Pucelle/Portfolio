@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from 'react'
 import styles from './Navigation.module.css'
-
+import { metadata } from '../../metadata'
 import { DefaultNavbar } from './defaultnavbar'
 import { FloatingNavbar } from './floatingnavbar'
 
@@ -44,11 +44,16 @@ export function Navigation({ handleClick }) {
   }, []);
 
   return (
-    <header className={styles.header}>
-      <DefaultNavbar handleClick={handleClick}/>
-      {showFloating && (
-        <FloatingNavbar show={showFloating} handleClick={handleClick}/>
-      )}
-    </header>
+    <>
+      <head>
+        <title>{metadata.title}</title>
+      </head>
+      <header className={styles.header}>
+        <DefaultNavbar handleClick={handleClick}/>
+        {showFloating && (
+          <FloatingNavbar show={showFloating} handleClick={handleClick}/>
+        )}
+      </header>
+    </>
   )
 }
