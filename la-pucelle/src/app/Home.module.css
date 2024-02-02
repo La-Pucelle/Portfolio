@@ -20,12 +20,10 @@
 
 .text h1{
     display: block;
-    border-right: 4px solid;
     white-space: nowrap;
     width: 13.13ch;
     color: var(--green);
     font-family: 'Courier New', Courier, monospace;
-    animation: typing 2s steps(13), blink .9s infinite step-end alternate;
     overflow: hidden;
 }
 
@@ -40,10 +38,6 @@
 .utsutsu{
     height: 70vh;
     filter: var(--logo);
-    transition: all 0.5s;
-    opacity: 0;
-    animation: opacity 1s forwards;
-    animation-delay: 3.5s;
     z-index: -1;
     user-select: none;
 }
@@ -84,31 +78,3 @@
         height: 80vh;
     }
 }
-
-@keyframes fadeInDown {
-    from {
-      opacity: 0;
-      transform: translateY(+100%);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-@keyframes opacity {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes typing {
-    from { width: 0 }
-  }
-
-  @keyframes blink {
-    50% { border-color: transparent }
-  }

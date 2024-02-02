@@ -9,8 +9,6 @@ export function Study(){
     ]
         
     return(
-        <div>
-            hola
-        </div>
+        <></>
     )
 }

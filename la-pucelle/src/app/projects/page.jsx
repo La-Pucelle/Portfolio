@@ -3,11 +3,7 @@ import styles from './projects.module.css'
 const Parallax = [
     {
         image: '/login-bg.gif',
-    },
-    {
-        image: '/login-bg.gif',
     }
-
 ]
 
 export default function Projects(){

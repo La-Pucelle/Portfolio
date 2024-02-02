@@ -4,6 +4,10 @@
     gap: 1rem;
 }
 
+.container p{
+    text-wrap: wrap;
+}
+
 .container span{
     color: var(--green);
 }
