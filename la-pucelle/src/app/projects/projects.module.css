@@ -21,7 +21,18 @@
     background-size: cover;
 }
 
+.item iframe {
+    position: absolute;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
 .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
     background-color: rgba(20, 20, 20, 0.4);
