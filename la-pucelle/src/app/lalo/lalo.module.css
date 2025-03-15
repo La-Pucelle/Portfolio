@@ -1,8 +1,41 @@
-.container{
-    background-color: black;
-    position: absolute;
-    top: 0;
-    width: 100vh;
+.container {
+    width: 100vw;
     height: 100vh;
-    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 9999;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.trustButton {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    z-index: 10000;
+}
+
+.trustButton:hover {
+    transform: scale(1.05);
+}
+
+@keyframes flashNegative {
+    0% { filter: none; }
+    50% { filter: invert(100%); }
+    100% { filter: none; }
+}
+
+.flashingImage {
+    animation: flashNegative 0.1s infinite;
 }
