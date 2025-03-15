@@ -1,30 +1,24 @@
 'use client'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import styles from './frieren.module.css'
 
 export default function Frieren() {
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const videoRef = useRef(null);
     const audioRef = useRef(null);
 
-    useEffect(() => {
-        if (isVideoPlaying && videoRef.current && audioRef.current) {
-            const playMedia = async () => {
-                try {
-                    await Promise.all([
-                        videoRef.current.play(),
-                        audioRef.current.play()
-                    ]);
-                } catch (error) {
-                    console.error('Playback failed:', error);
-                }
-            };
-            playMedia();
-        }
-    }, [isVideoPlaying]);
-
     const handlePlay = () => {
+        setIsLoading(true);
         setIsVideoPlaying(true);
+    };
+
+    const handleVideoLoad = () => {
+        setIsLoading(false);
+        if (videoRef.current && audioRef.current) {
+            videoRef.current.play();
+            audioRef.current.play();
+        }
     };
 
     const handleClose = () => {
@@ -34,6 +28,7 @@ export default function Frieren() {
             audioRef.current.pause();
             audioRef.current.currentTime = 0;
             setIsVideoPlaying(false);
+            setIsLoading(false);
         }
     };
 
@@ -48,16 +43,20 @@ export default function Frieren() {
                 </button>
             </div>
 
-            {isVideoPlaying && (
+            {(isVideoPlaying || isLoading) && (
                 <div className={styles.videoOverlay}>
                     <button className={styles.closeButton} onClick={handleClose}>×</button>
+                    {isLoading && (
+                        <div className={styles.loader}>Loading...</div>
+                    )}
                     <video
                         ref={videoRef}
-                        className={styles.video}
+                        className={`${styles.video} ${isLoading ? styles.hidden : ''}`}
                         src="/frieren.mp4"
                         playsInline
                         muted
                         loop
+                        onLoadedData={handleVideoLoad}
                     />
                     <audio
                         ref={audioRef}

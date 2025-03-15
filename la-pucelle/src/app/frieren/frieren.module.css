@@ -100,3 +100,20 @@
 .closeButton:hover {
     opacity: 1;
 }
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #6b75b7;
+    font-size: 1.2rem;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.video {
+    transition: opacity 0.3s ease;
+}
