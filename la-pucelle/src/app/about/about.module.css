@@ -8,6 +8,17 @@
     color: #fff;
     position: relative;
     overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.light {
+    background-color: #fff;
+    color: #000;
+}
+
+.light .grid {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
 }
 
 .noise {
@@ -31,14 +42,52 @@
                       linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 30px 30px;
     pointer-events: none;
+    transition: all 0.3s ease;
 }
 
-.content {
-    text-align: center;
+.themeToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: 1px solid #4ecdc4;
+    color: #4ecdc4;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.themeToggle:hover {
+    background: #4ecdc4;
+    color: #000;
+}
+
+.light .themeToggle {
+    border-color: #4ecdc4;
+    color: #4ecdc4;
+}
+
+.card {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(78, 205, 196, 0.2);
+    border-radius: 15px;
+    padding: 2rem 3rem;
+    backdrop-filter: blur(10px);
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.8s ease-out;
-    z-index: 2;
+}
+
+.light .card {
+    background: rgba(255, 255, 255, 0.5);
+    border-color: rgba(78, 205, 196, 0.2);
 }
 
 .visible {
@@ -48,14 +97,14 @@
 
 .title {
     font-size: 2rem;
-    color: #ff69b4;
+    color: #4ecdc4;
     letter-spacing: 0.5em;
     font-weight: normal;
     margin-bottom: 1rem;
 }
 
 .divider {
-    color: #ff69b4;
+    color: #4ecdc4;
     opacity: 0.5;
     letter-spacing: 0.2em;
     margin: 2rem 0;
@@ -69,7 +118,7 @@
 }
 
 .iconLink {
-    color: #ff69b4;
+    color: #4ecdc4;
     text-decoration: none;
     font-size: 1.5rem;
     transition: all 0.3s ease;
@@ -78,4 +127,44 @@
 .iconLink:hover {
     color: #fff;
     transform: translateY(-2px);
+}
+
+.light .iconLink:hover {
+    color: #000;
+}
+
+.light .iconLink, .light .title, .light .divider {
+    color: #ff8686;
+}
+
+.iconLink, .title, .divider {
+    color: #93ff65;
+}
+
+.themeToggle {
+    border: 1px solid #93ff65;
+    color: #93ff65;
+}
+
+.light .themeToggle {
+    border-color: #ff8686;
+    color: #ff8686;
+}
+
+.themeToggle:hover {
+    background: #93ff65;
+    color: #000;
+}
+
+.light .themeToggle:hover {
+    background: #ff8686;
+    color: #fff;
+}
+
+.card {
+    border: 1px solid rgba(147, 255, 101, 0.2);
+}
+
+.light .card {
+    border-color: rgba(255, 134, 134, 0.2);
 }
