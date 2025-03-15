@@ -1,11 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 
-export const metadata = {
-  title: 'Trust Me',
-}
-
-export default function LaloLayout({ children }) {
+export default function AboutLayout({ children }) {
     useEffect(() => {
         document.body.style.overflow = 'hidden'
         return () => {
