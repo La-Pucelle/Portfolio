@@ -1,0 +1,102 @@
+.frierenLayout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: #fff;
+    overflow: hidden;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #f5f5ff 0%, #e8eaf6 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.content {
+    text-align: center;
+    z-index: 1;
+    padding: 2rem;
+    background: transparent;
+}
+
+.content h1 {
+    color: #6b75b7;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+.quote {
+    color: #4a5494;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.subQuote {
+    color: #8790c7;
+    font-size: 1rem;
+    margin-bottom: 3rem;
+}
+
+.watchButton {
+    background: rgba(107, 117, 183, 0.1);
+    border: 1px solid rgba(107, 117, 183, 0.3);
+    padding: 1rem 3rem;
+    color: #4a5494;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.watchButton:hover {
+    background: rgba(107, 117, 183, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 84, 148, 0.2);
+}
+
+.videoOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    z-index: 1000;
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.closeButton {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 0.5rem;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.closeButton:hover {
+    opacity: 1;
+}
