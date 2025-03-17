@@ -8,7 +8,12 @@ export default function MusicPlayer({ isDark }) {
     const [duration, setDuration] = useState(0);
     const [isRepeat, setIsRepeat] = useState(false);
     const [isShuffle, setIsShuffle] = useState(false);
+    const [sections, setSections] = useState([]);
+    const [currentSection, setCurrentSection] = useState('root');
+    const [playlists, setPlaylists] = useState({});
     const [playlist, setPlaylist] = useState([]);
+    const [volume, setVolume] = useState(1);
+    const [isMuted, setIsMuted] = useState(false);
     const audioRef = useRef(null);
     const progressRef = useRef(null);
 
@@ -20,8 +25,10 @@ export default function MusicPlayer({ isDark }) {
                 const response = await fetch('/api/playlist');
                 const data = await response.json();
                 console.log('Playlist data:', data);
-                if (data.songs && data.songs.length > 0) {
-                    setPlaylist(data.songs);
+                if (data.sections && data.songs) {
+                    setSections(data.sections);
+                    setPlaylists(data.songs);
+                    setPlaylist(data.songs.root || []);
                 }
             } catch (error) {
                 console.error('Error loading playlist:', error);
@@ -104,13 +111,50 @@ export default function MusicPlayer({ isDark }) {
             width: '100%',
             fontSize: '0.9rem'
         }}>
-            <h2 style={{ 
-                color: isDark ? '#93ff65' : '#ff8686',
-                margin: '0 0 1rem 0',
-                fontSize: '1rem'
+            <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: '1rem'
             }}>
-                ⋆｡°✩ Playlist ✩°｡⋆
-            </h2>
+                <h2 style={{ 
+                    color: isDark ? '#93ff65' : '#ff8686',
+                    margin: 0,
+                    fontSize: '1rem'
+                }}>
+                    ⋆｡°✩ Playlist ✩°｡⋆
+                </h2>
+                <select 
+                    value={currentSection}
+                    onChange={(e) => {
+                        setCurrentSection(e.target.value);
+                        setPlaylist(playlists[e.target.value] || []);
+                        setCurrentTrack(0);
+                        setIsPlaying(false);
+                    }}
+                    style={{
+                        background: 'transparent',
+                        border: `1px solid ${isDark ? '#93ff65' : '#ff8686'}`,
+                        color: isDark ? '#93ff65' : '#ff8686',
+                        padding: '0.3rem',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                        fontSize: '0.9rem'
+                    }}
+                >
+                    {sections.map(section => (
+                        <option 
+                            key={section} 
+                            value={section}
+                            style={{
+                                background: isDark ? '#1a1a1a' : '#ffffff'
+                            }}
+                        >
+                            {section === 'root' ? 'Nier' : section}
+                        </option>
+                    ))}
+                </select>
+            </div>
 
             <div style={{ 
                 display: 'flex', 
@@ -202,76 +246,119 @@ export default function MusicPlayer({ isDark }) {
 
                 <div style={{ 
                     display: 'flex',
-                    justifyContent: 'center',
-                    gap: '1.5rem',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
                     fontSize: '0.9rem'
                 }}>
-                    <button
-                        onClick={() => setIsShuffle(!isShuffle)}
-                        style={{
-                            background: 'none',
-                            border: 'none',
-                            color: isDark ? (isShuffle ? '#93ff65' : 'rgba(147, 255, 101, 0.5)') 
-                                        : (isShuffle ? '#ff8686' : 'rgba(255, 134, 134, 0.5)'),
-                            cursor: 'pointer',
-                            padding: 0
-                        }}
-                    >
-                        ⤨
-                    </button>
-                    <button
-                        onClick={() => setCurrentTrack(current => 
-                            current === 0 ? playlist.length - 1 : current - 1
-                        )}
-                        style={{
-                            background: 'none',
-                            border: 'none',
-                            color: isDark ? '#93ff65' : '#ff8686',
-                            cursor: 'pointer',
-                            padding: 0
-                        }}
-                    >
-                        ⋘
-                    </button>
-                    <button
-                        onClick={handlePlayPause}
-                        style={{
-                            background: 'none',
-                            border: 'none',
-                            color: isDark ? '#93ff65' : '#ff8686',
-                            cursor: 'pointer',
-                            padding: 0
-                        }}
-                    >
-                        {isPlaying ? '⫾⫾' : '▷'}
-                    </button>
-                    <button
-                        onClick={() => setCurrentTrack(current => 
-                            (current + 1) % playlist.length
-                        )}
-                        style={{
-                            background: 'none',
-                            border: 'none',
-                            color: isDark ? '#93ff65' : '#ff8686',
-                            cursor: 'pointer',
-                            padding: 0
-                        }}
-                    >
-                        ⋙
-                    </button>
-                    <button
-                        onClick={() => setIsRepeat(!isRepeat)}
-                        style={{
-                            background: 'none',
-                            border: 'none',
-                            color: isDark ? (isRepeat ? '#93ff65' : 'rgba(147, 255, 101, 0.5)') 
-                                        : (isRepeat ? '#ff8686' : 'rgba(255, 134, 134, 0.5)'),
-                            cursor: 'pointer',
-                            padding: 0
-                        }}
-                    >
-                        ⟲
-                    </button>
+                    <div style={{ width: '100px' }}></div>
+                    <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+                        <button
+                            onClick={() => setIsShuffle(!isShuffle)}
+                            style={{
+                                background: 'none',
+                                border: 'none',
+                                color: isDark ? (isShuffle ? '#93ff65' : 'rgba(147, 255, 101, 0.5)') 
+                                            : (isShuffle ? '#ff8686' : 'rgba(255, 134, 134, 0.5)'),
+                                cursor: 'pointer',
+                                padding: 0
+                            }}
+                        >
+                            ⤨
+                        </button>
+                        <button
+                            onClick={() => setCurrentTrack(current => 
+                                current === 0 ? playlist.length - 1 : current - 1
+                            )}
+                            style={{
+                                background: 'none',
+                                border: 'none',
+                                color: isDark ? '#93ff65' : '#ff8686',
+                                cursor: 'pointer',
+                                padding: 0
+                            }}
+                        >
+                            ⋘
+                        </button>
+                        <button
+                            onClick={handlePlayPause}
+                            style={{
+                                background: 'none',
+                                border: 'none',
+                                color: isDark ? '#93ff65' : '#ff8686',
+                                cursor: 'pointer',
+                                padding: 0
+                            }}
+                        >
+                            {isPlaying ? '⫾⫾' : '▷'}
+                        </button>
+                        <button
+                            onClick={() => setCurrentTrack(current => 
+                                (current + 1) % playlist.length
+                            )}
+                            style={{
+                                background: 'none',
+                                border: 'none',
+                                color: isDark ? '#93ff65' : '#ff8686',
+                                cursor: 'pointer',
+                                padding: 0
+                            }}
+                        >
+                            ⋙
+                        </button>
+                        <button
+                            onClick={() => setIsRepeat(!isRepeat)}
+                            style={{
+                                background: 'none',
+                                border: 'none',
+                                color: isDark ? (isRepeat ? '#93ff65' : 'rgba(147, 255, 101, 0.5)') 
+                                            : (isRepeat ? '#ff8686' : 'rgba(255, 134, 134, 0.5)'),
+                                cursor: 'pointer',
+                                padding: 0
+                            }}
+                        >
+                            ⟲
+                        </button>
+                    </div>
+                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', width: '100px' }}>
+                        <button
+                            onClick={() => {
+                                setIsMuted(!isMuted);
+                                if (audioRef.current) {
+                                    audioRef.current.volume = !isMuted ? 0 : volume;
+                                }
+                            }}
+                            style={{
+                                background: 'none',
+                                border: 'none',
+                                color: isDark ? '#93ff65' : '#ff8686',
+                                cursor: 'pointer',
+                                padding: 0,
+                                opacity: isMuted ? 0.5 : 1,
+                                fontSize: '1.2rem'
+                            }}
+                        >
+                            {isMuted ? '♪' : volume > 0.5 ? '♫' : volume > 0 ? '♪' : '♯'}
+                        </button>
+                        <input
+                            type="range"
+                            min="0"
+                            max="1"
+                            step="0.01"
+                            value={isMuted ? 0 : volume}
+                            onChange={(e) => {
+                                const newVolume = parseFloat(e.target.value);
+                                setVolume(newVolume);
+                                setIsMuted(newVolume === 0);
+                                if (audioRef.current) {
+                                    audioRef.current.volume = newVolume;
+                                }
+                            }}
+                            style={{
+                                width: '60px',
+                                accentColor: isDark ? '#93ff65' : '#ff8686'
+                            }}
+                        />
+                    </div>
                 </div>
             </div>
 

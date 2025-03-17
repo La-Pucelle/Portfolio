@@ -25,7 +25,7 @@ export default function About() {
             case 'about':
                 return <AboutMe isDark={isDark} />;
             case 'video':
-                return <VideoSection />;
+                return <VideoSection isDark={isDark} />;
             case 'game':
                 return <SpaceGame isDark={isDark} />;
             case 'music':
